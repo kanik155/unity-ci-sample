@@ -9,7 +9,7 @@ jobs:
     executor: unity
     steps:
       - checkout
-      - run: openssl aes-256-cbc -d -in .circleci/Unity_v2019.x.ulf-cipher -k ${KEY} >> .circleci/Unity_v2019.x.ulf
+      - run: openssl aes-256-cbc -d -in .circleci/Unity_v2019.x.ulf-cipher -k ${CYPHER_KEY} -md md5>> .circleci/Unity_v2019.x.ulf
       - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .circleci/Unity_v2019.x.ulf || exit 0
 workflows:
   version: 2
